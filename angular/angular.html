@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Javascript</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Opis strony">
+    <meta name="viewport" content="width-devide-width, initial-scale=1">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js">
+    </script>
+    
+</head>
+
+<! -- ng-app - definiuje przestrzen dla palikacji angularowej: u nas edzie to cale body -->
+<body ng-app="myApp" ng-controller='myCtrl'>
+
+
+<input ng-model="myName"> <!-- piszac tutaj zmieniam wartosc zmiennej myName, wiec tekst w h1 bedzie sie zmienial -->
+
+<h1>Twoje imię: {{myName}}</h1>
+
+<hr>
+
+<input ng-model="waga">
+<input ng-model="wzrost">
+<h1>Twoje BMI to: {{waga / (wzrost * wzrost)}}</h1>
+
+<hr>
+
+<button ng-click="myFunction('Roman')">Cześć Bartek</button>
+
+
+<script>
+    var app = angular.module('myApp', []);
+    
+    app.controller('myCtrl', function($scope) {
+        $scope.myName = "Bartek";
+        $scope.wzrost = 1.82;
+        $scope.waga = 81;
+        
+        $scope.myFunction = function(name) {
+            alert("Hello " + name);
+        }
+        
+    })
+    </script>
+
+</body>
+
+</html>

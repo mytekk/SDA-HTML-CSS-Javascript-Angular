@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Javascript</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Opis strony">
+    <meta name="viewport" content="width-devide-width, initial-scale=1">
+</head>
+
+<body>
+
+<input id="input" />
+<h1 id='text'></h1>
+
+
+<script>
+    var input = document.getElementById("input");
+    var h1 = document.getElementById("text");
+    
+    input.addEventListener('keydown', function() {
+        h1.innerHTML = input.value;
+    })
+    
+    </script>
+
+
+
+</body>
+
+</html>

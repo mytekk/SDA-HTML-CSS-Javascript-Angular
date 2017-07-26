@@ -1,0 +1,66 @@
+.column {
+    display: inline-block;
+    width: 30%;
+}
+div>div {
+    width: 100px;
+    height: 100px;
+    background: blue;
+    transition: 0.4s;
+    display: inline-block;
+}
+
+div.active {
+    opacity: 1;
+}
+
+.circle:hover {
+    border-radius: 50%;
+}
+
+.top {
+    top: 0;
+    position: relative;
+}
+
+.top:hover {
+    top: 50px;
+}
+
+.scale:hover {
+    transform: scale(1.5);
+}
+
+.scale-down:hover {
+    transform: scale(0.5);
+}
+
+.translate:hover {
+    transform: translate(150px, 200px);
+}
+
+.rotate:hover {
+    transform: rotate(250deg);
+}
+
+.green-dot:hover {
+    transform: rotate(360deg) scale(0.5);
+    border-radius: 50%;
+    background: green;
+}
+
+.skew:hover {
+    transform: skewX(50deg);
+}
+
+.opacity:hover {
+    opacity: 0;
+}
+
+/* style dla ekranow do 768 pikseli */
+@media screen and (max-width: 768px) {
+    /*kolumny maja byc pod soba, a nie obok siebie*/
+    .column {
+        width: 100%;
+    }
+}

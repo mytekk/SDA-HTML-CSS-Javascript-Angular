@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Javascript</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Opis strony">
+    <meta name="viewport" content="width-devide-width, initial-scale=1">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js">
+
+
+    </script>
+
+    <style>
+        li a {
+            color: red;
+        }
+        
+        [ng-click] {
+            cursor: pointer;
+        }
+        
+        .line-through {
+            text-decoration: line-through;
+        }
+
+    </style>
+
+</head>
+
+<body ng-app="myApp" ng-controller='myCtrl'>
+
+    <ul>
+        <li ng-repeat="task in tasks" ng-class="task.status" ng-click="toggleStatus($index)">
+            {{$index}}. {{task.name}} <a ng-click="removeTask($index)">usuń</a>
+        </li>
+    </ul>
+
+    <input ng-model="newTask">
+    <button ng-click="addTask()">Dodaj nowy task</button>
+    
+    <button ng-click="removeDoneTasks()">Usun wykonane zadania</button>
+
+
+    <script>
+        var app = angular.module('myApp', []);
+
+        app.controller('myCtrl', function($scope) {
+
+            $scope.tasks = [{
+                    name: "pozmywać",
+                    status: "active"
+                },
+                {
+                    name: "pozamiatać",
+                    status: "line-through"
+                },
+                {
+                    name: "odkurzyć",
+                    status: "active"
+                }
+            ];
+
+            $scope.newTask = "";
+
+            $scope.addTask = function() {
+                if ($scope.newTask != '') {
+                    $scope.tasks.push({
+                        name: $scope.newTask,
+                        status: "active"
+                    });
+                }
+                $scope.newTask = "";
+            };
+
+            $scope.removeTask = function(index) {
+                $scope.tasks.splice(index, 1);
+            };
+
+            $scope.toggleStatus = function(index) {
+                if ($scope.tasks[index].status == 'active') {
+                    $scope.tasks[index].status = 'line-through';
+                } else {
+                    $scope.tasks[index].status = 'active';
+                }
+            };
+            
+            $scope.removeDoneTasks = function() {
+                for (var i = 0; i < $scope.tasks.length; i++) {
+                    if ($scope.tasks[i].status == "line-through") {
+                        $scope.tasks.splice(i, 1);
+                        i--;
+                    }
+                }  
+            };
+
+
+
+        })
+
+    </script>
+
+</body>
+
+</html>

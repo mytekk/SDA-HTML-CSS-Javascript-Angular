@@ -1,0 +1,200 @@
+body {
+    font-family: 'Bitter', serif;
+    background: url(img/background.jpg);
+    background-size: 100%;
+    background-attachment: fixed;
+    margin: 0;
+}
+
+.header {
+    text-align: center;
+    color: white;
+    padding: 50px 0;
+}
+
+.header h1 {
+    margin: 10px 0;
+    font-size: 65px;
+}
+
+.wrapper {
+    width: 600px;
+    max-width: 95%;
+    margin: auto;
+}
+
+.main,
+.footer {
+    background: white;
+    padding: 30px 0;
+}
+
+.header img {
+    padding: 10px;
+    border: 5px solid #112255;
+    margin: 10px;
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.navigation ul {
+    list-style: none;
+    padding: 0;
+}
+
+.navigation li {
+    display: inline-block;
+    padding-right: 100px;
+}
+
+.navigation li:last-of-type {
+    padding: 0;
+}
+
+.navigation a {
+    text-decoration: none;
+    position: relative;
+    /*pozwoli na to, ze inne elementy bede mogl stylowac wzgledem mojego a*/
+}
+
+
+/* kolorowanie linku w menu w momencie najechania kursorem */
+
+.navigation a:hover {
+    color: lightblue;
+}
+
+
+/* kolorowanie linku w menu w momencie klikania myszka */
+
+.navigation a:active {
+    color: red;
+}
+
+
+/* kolorowanie paragrafow: pierwszy, drugi i ostatni, ktore sa wewnatrz klasy main */
+
+.main p:first-of-type {
+    color: red;
+}
+
+.main p:nth-of-type(2) {
+    color: yellow;
+}
+
+.main p:last-of-type {
+    color: green;
+}
+
+
+/* tlo dla kazdego parzystego elementu menu */
+
+
+/*
+li:nth-of-type(2n) {
+    background: blue;
+}
+*/
+
+
+/* kreska pod elementem menu */
+
+
+/* mozemy tu stylowac polozenie, bo w a mamy position relative, bez tego nie zadziala */
+
+.navigation a:after {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: blue;
+    position: absolute;
+    bottom: -10px;
+}
+
+.navigation a:hover:after {
+    bottom: -5px;
+}
+
+
+/* koleczko nad linkiem w menu */
+
+.navigation a:before {
+    content: "";
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: blue;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    margin-left: -3px;
+    /*przesuwam kulke o polowe jej szerokosci w lewo*/
+    opacity: 0;
+    transition: 0.5s;
+    /*rysowanie zmian w tym css w pol sekundy*/
+}
+
+.navigation a:hover:before {
+    opacity: 1;
+    top: -10px;
+    /*kulka spada w dol z -30 px na -10px*/
+    background: pink;
+    /*kulka zmiania kolor w trakcie spadania*/
+}
+
+
+/*hamburger menu*/
+
+.hamburger {
+    width: 50px;
+    height: 50px;
+    background: yellow;
+    position: relative;
+    display: none;
+}
+
+.hamburger>span,
+.hamburger:before,
+.hamburger:after {
+    width: 30px;
+    height: 4px;
+    border-radius: 2px;
+    background: black;
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -15px;
+}
+
+.hamburger:before {
+    top: 15px;
+    content: "";
+}
+
+.hamburger>span {
+    top: 25px;
+}
+
+.hamburger:after {
+    top: 35px;
+    content: "";
+}
+
+@media screen and (max-width:768px) {
+    .hamburger {
+        display: block;
+    }
+    .navigation>ul {
+        display: none;
+    }
+}

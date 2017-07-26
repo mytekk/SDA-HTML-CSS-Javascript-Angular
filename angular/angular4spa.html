@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Javascript</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Opis strony">
+    <meta name="viewport" content="width-devide-width, initial-scale=1">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js">
+
+
+    </script>
+
+    <style>
+        a {cursor: pointer;}
+        a:hover {color: gray}
+        .page {position: relative;}
+        .page>div {opacity: 0; position: absolute; transition: .5s; top:100px;}
+        .about .about,
+        .projects .projects,
+        .contact .contact {opacity: 1; transition-delay: 0.5s; top: 0;} /*styl pojawiajacego sie diva*/
+
+    </style>
+
+</head>
+
+<body ng-app="myApp" ng-controller='myCtrl'>
+    
+    <ul>
+        <li><a ng-click="myPage='about'">About</a></li>
+        <li><a ng-click="myPage='projects'">Projects</a></li>
+        <li><a ng-click="myPage='contact'">Contact</a></li>
+    </ul>
+
+    <div class="page" ng-class="myPage">
+        <div class="about">
+            <h1>O mnie</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio itaque totam quibusdam atque ipsam, ad temporibus deleniti nesciunt, nisi repellendus enim eum magni! Cum necessitatibus minima inventore illo fugit asperiores!</p>
+        </div>
+        <div class="projects">
+            <h1>Projekty</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio itaque totam quibusdam atque ipsam, ad temporibus deleniti nesciunt, nisi repellendus enim eum magni! Cum necessitatibus minima inventore illo fugit asperiores!</p>
+        </div>
+        <div class="contact">
+            <h1>Kontakt</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio itaque totam quibusdam atque ipsam, ad temporibus deleniti nesciunt, nisi repellendus enim eum magni! Cum necessitatibus minima inventore illo fugit asperiores!</p>
+        </div>
+    </div>
+
+
+    <script>
+        var app = angular.module('myApp', []);
+
+        app.controller('myCtrl', function($scope) {
+
+            $scope.myPage = "about";
+
+
+
+        })
+
+    </script>
+
+</body>
+
+</html>

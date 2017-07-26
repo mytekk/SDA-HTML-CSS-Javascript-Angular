@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Javascript</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Opis strony">
+    <meta name="viewport" content="width-devide-width, initial-scale=1">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js">
+    </script>
+    
+    <style>
+        div {width: 200px; height: 200px;}
+        .red {background: red;}
+        .blue {background: blue;}
+        .green {background: green;}
+    </style>
+    
+</head>
+
+<body ng-app="myApp" ng-controller='myCtrl'>
+
+<select ng-model="myClass">
+    <option value="red">Red</option>
+    <option value="blue">Blue</option>
+    <option value="green">Green</option>
+</select>
+
+<div ng-class="myClass"></div>
+
+
+<script>
+    var app = angular.module('myApp', []);
+    
+    app.controller('myCtrl', function($scope) {
+        
+        $scope.myClass = "red";
+        
+        
+        
+    })
+    </script>
+
+</body>
+
+</html>

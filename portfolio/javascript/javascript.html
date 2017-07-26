@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Javascript</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Opis strony">
+    <meta name="viewport" content="width-devide-width, initial-scale=1">
+</head>
+
+<body>
+
+
+<button id="alert">Alert</button>
+
+<br><br>
+
+<!-- kalkulator -->
+<input id="value1">
+<select id="action">
+    <option value="addiction">plus</option>
+    <option value="subtraction">odjac</option>
+    <option value="multiplication">razy</option>
+    <option value="division">przez</option>
+</select>
+<input id="value2">
+<button id="result">Oblicz</button>
+<!-- kalkulator -->
+
+
+
+
+    <script>
+        
+        var number = 5,
+            text = "lorem ipsum",
+            logical = true;
+        
+        /*
+        myFunction = function() {
+            alert('pressed button');
+        }
+        */
+        
+        /*
+        alert(number);
+        
+        if (logical) {
+            alert("logiczne!");
+        } else {
+            alert("nielogiczne!");
+        }
+        
+        
+        console.log("wpis");
+        console.info("info");
+        
+        for (var i=0; i<100; i++) {
+            console.log(i);
+        }
+        */
+        
+        var button = document.getElementById("alert");
+        button.innerHTML = "tekst";
+        
+        //button.addEventListener('click', myFunction);
+        
+        button.addEventListener('click', function() {
+            alert('pressed button');
+        });
+        
+        /* kalkulator */
+        
+        var value1 = document.getElementById('value1');
+        var value2 = document.getElementById('value2');
+        var action = document.getElementById('action');
+        
+        document.getElementById('result').addEventListener('click', function(){
+            //parseInt(value1.value)
+            if (action.value == "addiction") {
+                alert("Wynik: " + (parseInt(value1.value) + parseInt(value2.value)));
+            } else if (action.value == "subtraction") {
+                alert("Wynik: " + (parseInt(value1.value) - parseInt(value2.value)));
+            } else if (action.value == "multiplication") {
+                alert("Wynik: " + (parseInt(value1.value) * parseInt(value2.value)));
+            } else if (action.value == "division" && parseInt(value2.value) != 0) {
+                alert("Wynik: " + (parseInt(value1.value) / parseInt(value2.value)));
+            } else {
+                alert("Error!");
+            }
+        })
+        
+        /* kalkulator */
+        
+    </script>
+    
+    
+    
+
+</body>
+
+</html>
